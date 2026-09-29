@@ -4,21 +4,22 @@
 \ProvidesPackage{cv}[2026/09/28 Nigel Li CV style]
 
 % ---------------------------------------------------------------- page
-\RequirePackage[letterpaper,top=0.45in,bottom=0.45in,left=0.5in,right=0.5in]{geometry}
+% Layout after Jake Gutierrez's "Jake's Resume" template (MIT licence).
+\RequirePackage[letterpaper,top=0.5in,bottom=0.5in,left=0.5in,right=0.5in]{geometry}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0in}
 \raggedbottom
 
 % ---------------------------------------------------------------- fonts
-% TeX Gyre Termes: a Times clone that ships with every TeX distribution, so
-% the output is identical on any machine. (Not Times New Roman: its shared
-% ";"/U+037E glyph makes XeTeX write Greek question marks into the PDF text
-% layer, which breaks copy/paste and ATS parsing.)
+% Latin Modern (Computer Modern), as in Jake's template, loaded by filename so
+% it works under tectonic, XeLaTeX and Overleaf alike. Common ligatures are off
+% so words like "Office" stay searchable by ATS parsers.
 \RequirePackage{fontspec}
-\setmainfont{texgyretermes}[Extension=.otf, UprightFont=*-regular,
+\setmainfont{lmroman10}[Extension=.otf, UprightFont=*-regular,
   BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic,
-  Ligatures={NoCommon, TeX}]  % no ff/fi ligatures: keeps text ATS-searchable
+  SmallCapsFont=lmromancaps10-regular, Ligatures={NoCommon, TeX}]
 % Chinese name (李永沛): Songti TC on macOS, Noto Serif CJK TC elsewhere.
 \IfFontExistsTF{Songti TC}
   {\newfontfamily\cjkfont{Songti TC}}
@@ -29,14 +30,15 @@
 
 % ---------------------------------------------------------------- links
 \RequirePackage{xcolor}
-\definecolor{linkblue}{RGB}{5,99,193}
 \RequirePackage[hidelinks,pdfusetitle]{hyperref}
+\urlstyle{same}
 \RequirePackage[normalem]{ulem}
-% \cvlink{url}{text}: clickable, blue and underlined like the Word originals.
-\newcommand{\cvlink}[2]{\href{#1}{\textcolor{linkblue}{\uline{#2}}}}
+% \cvlink{url}{text}: clickable, underlined in black (Jake's style).
+\newcommand{\cvlink}[2]{\href{#1}{\uline{#2}}}
 
 % URLs used across versions — edit once here.
 \newcommand{\urlLinkedIn}{https://www.linkedin.com/in/nigelli2/}
+\newcommand{\urlGitHub}{https://github.com/nl2992}
 % Stable iaqf.org path; it redirects to a freshly signed CDN link each visit
 % (the signed CDN URL itself expires, so never paste that one in).
 \newcommand{\urlIAQF}{https://iaqf.org/resources/Documents/2026\%20Student\%20Competition/The\%20IAQF\%20Announces\%20the\%20Winners\%20of\%20the\%20Fifteenth\%20Annual\%20IAQF\%20Academic\%20Affiliate\%20Membership\%20Student\%20Competition\%202026.pdf}
@@ -44,47 +46,49 @@
 
 \newcommand{\email}[1]{\cvlink{mailto:#1}{#1}}
 \newcommand{\linkedin}{\cvlink{\urlLinkedIn}{Linkedin}}
+\newcommand{\github}{\cvlink{\urlGitHub}{GitHub}}
 
 % ---------------------------------------------------------------- header
-% \cvheader{NAME}{contact line}  — optional extra lines follow as \cvheaderline.
+% \cvheader{Name}{contact line}  — optional extra lines follow as \cvheaderline.
 \newcommand{\cvheader}[2]{%
   \begin{center}
-    {\fontsize{14}{16}\selectfont\bfseries #1}\\[1pt]
-    {\fontsize{10.5}{12.5}\selectfont #2}%
+    {\Huge\scshape #1}\\[3pt]
+    {\small #2}%
 }
-\newcommand{\cvheaderline}[1]{\\{\fontsize{10.5}{12.5}\selectfont #1}}
-\newcommand{\cvheaderend}{\end{center}\vspace{-6pt}}
-\newcommand{\sep}{\ \textbar\ }
+\newcommand{\cvheaderline}[1]{\\[1pt]{\small #1}}
+\newcommand{\cvheaderend}{\end{center}\vspace{-10pt}}
+\newcommand{\sep}{\ $|$\ }
 
 % ---------------------------------------------------------------- body
-\newcommand{\cvbodysize}{\fontsize{10.5}{12}\selectfont}
-% Ragged-right with no hyphenation, like the Word originals.
-\AtBeginDocument{\cvbodysize\raggedright}
-\hyphenpenalty=10000 \exhyphenpenalty=10000
+\AtBeginDocument{\raggedright}
 
-% \cvsection{TITLE}: bold caps heading with a full-width rule.
+% \cvsection{Title}: small caps with a full-width rule.
 \newcommand{\cvsection}[1]{%
-  \par\vspace{8pt}%
-  {\fontsize{11}{13}\selectfont\bfseries #1}\par\vspace{1.5pt}%
-  \hrule height 0.6pt\relax\vspace{2pt}%
+  \par\vspace{6pt}%
+  {\large\scshape #1}\par\vspace{1pt}%
+  \hrule height 0.4pt\relax\vspace{4pt}%
 }
 
 % \cventry{Organisation}{Location}{Role / degree}{Dates}
+\newcommand{\cvindent}{0.15in}
 \newcommand{\cventry}[4]{%
-  \par{\bfseries #1}\hfill #2\par
-  {\itshape #3}\hfill #4\par
+  \par\hspace*{\cvindent}%
+  \begin{tabular*}{\dimexpr0.97\textwidth-\cvindent}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\par\vspace{-1pt}%
 }
-\newcommand{\entrygap}{\par\vspace{6pt}}
+\newcommand{\entrygap}{\par\vspace{4pt}}
 
 \RequirePackage{enumitem}
-\setlist[itemize]{label={\fontsize{8}{8}\selectfont\raisebox{0.1ex}{$\bullet$}},
-  leftmargin=0.3in, labelsep=0.12in, itemsep=0pt, parsep=0pt, topsep=0pt,
-  partopsep=0pt}
+\setlist[itemize]{label={$\vcenter{\hbox{\tiny$\bullet$}}$},
+  leftmargin=\dimexpr\cvindent+1.6em\relax, itemsep=-1pt, parsep=0pt,
+  topsep=1pt, partopsep=0pt, before=\small}
 
-% Smaller list for the skills block, with bold labels.
+% Skills block: no bullets, bold labels, like Jake's "Technical Skills".
 \newenvironment{cvskills}
-  {\begin{itemize}\fontsize{9.5}{11}\selectfont}
+  {\begin{itemize}[label={}, leftmargin=\cvindent, itemsep=0pt]}
   {\end{itemize}}
-\newcommand{\skill}[2]{\item \textbf{#1:} #2}
+\newcommand{\skill}[2]{\item \textbf{#1}{: #2}}
 
 \endinput

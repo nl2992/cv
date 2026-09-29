@@ -1,7 +1,8 @@
 # LaTeX CV sources
 
 Each version is a standalone `.tex` file; layout, fonts and shared URLs live in
-[`cv.sty`](cv.sty). Compiled PDFs are committed in [`pdf/`](pdf/).
+[`cv.sty`](cv.sty), styled after [Jake's Resume](https://github.com/jakegut/resume)
+(MIT). Compiled PDFs are committed in [`pdf/`](pdf/).
 
 | Version | Source | PDF |
 |---|---|---|
@@ -27,7 +28,7 @@ every `.tex` in this folder automatically.
 
 ## Links
 
-Every version has clickable links for email, LinkedIn, **Winning Team** (IAQF
+Every version has clickable links for email, LinkedIn, GitHub, **Winning Team** (IAQF
 announcement) and **firm-wide recognized** (Wellington memo). The URLs are
 defined once in `cv.sty` — change them there. Use `\cvlink{url}{text}` for new ones.
 
