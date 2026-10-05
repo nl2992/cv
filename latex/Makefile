@@ -5,8 +5,6 @@ SOURCES := $(filter-out cv.sty,$(wildcard *.tex))
 PDFS    := $(patsubst %.tex,pdf/%.pdf,$(SOURCES))
 
 all: $(PDFS)
-	@cp $(PDFS) ..
-	@echo "copied $(words $(PDFS)) PDFs to repo root"
 
 pdf/%.pdf: %.tex cv.sty | pdf
 ifeq ($(ENGINE),tectonic)
