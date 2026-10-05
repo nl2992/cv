@@ -11,6 +11,7 @@ Each version is a standalone `.tex` file; layout, fonts and shared URLs live in
 | Hong Kong · Sell-Side | [NigelLi_CV_HK_SellSide.tex](NigelLi_CV_HK_SellSide.tex) | [pdf](pdf/NigelLi_CV_HK_SellSide.pdf) |
 | United States · Buy-Side | [NigelLi_CV_US_BuySide.tex](NigelLi_CV_US_BuySide.tex) | [pdf](pdf/NigelLi_CV_US_BuySide.pdf) |
 | United States · Sell-Side | [NigelLi_CV_US_SellSide.tex](NigelLi_CV_US_SellSide.tex) | [pdf](pdf/NigelLi_CV_US_SellSide.pdf) |
+| Columbia MAFN Resume Book (US Buy-Side, Columbia email) | [Li_Nigel.tex](Li_Nigel.tex) | [pdf](pdf/Li_Nigel.pdf) |
 
 ## Build
 

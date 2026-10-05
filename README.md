@@ -4,8 +4,10 @@ Current CV: [Nigel_Li_CV.pdf](Nigel_Li_CV.pdf)
 
 Regional CVs:
 
-- Hong Kong: [Buy-Side](NigelLi_CV_HK_BuySide.pdf) · [Sell-Side](NigelLi_CV_HK_SellSide.pdf)
-- United States: [Buy-Side](NigelLi_CV_US_BuySide.pdf) · [Sell-Side](NigelLi_CV_US_SellSide.pdf)
+- Hong Kong: [A](Nigel_Li_CV_HK_A.pdf) · [B](Nigel_Li_CV_HK_B.pdf)
+- United States: [A](Nigel_Li_CV_US_A.pdf) · [B](Nigel_Li_CV_US_B.pdf)
+
+<!-- Variant key (local reference only): A = buy-side, B = sell-side -->
 
 MA Mathematics of Finance, Columbia University (2025–2026).
 Previously dual degree in Commerce (Business Analytics) and Computer Science (AI), UNSW.

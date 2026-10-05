@@ -5,7 +5,7 @@
 
 % ---------------------------------------------------------------- page
 % Layout after Jake Gutierrez's "Jake's Resume" template (MIT licence).
-\RequirePackage[letterpaper,top=0.5in,bottom=0.5in,left=0.5in,right=0.5in]{geometry}
+\RequirePackage[letterpaper,top=0.4in,bottom=0.4in,left=0.4in,right=0.4in]{geometry}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
@@ -42,17 +42,19 @@
 % Stable iaqf.org path; it redirects to a freshly signed CDN link each visit
 % (the signed CDN URL itself expires, so never paste that one in).
 \newcommand{\urlIAQF}{https://iaqf.org/resources/Documents/2026\%20Student\%20Competition/The\%20IAQF\%20Announces\%20the\%20Winners\%20of\%20the\%20Fifteenth\%20Annual\%20IAQF\%20Academic\%20Affiliate\%20Membership\%20Student\%20Competition\%202026.pdf}
+\newcommand{\urlICAIF}{https://github.com/nl2992/ICAIF_cvar-rl-portfolio-allocator}
+\newcommand{\urlIAQFPaper}{https://github.com/nl2992/IAQF-2026-Submission}
 \newcommand{\urlWellingtonMemo}{https://drive.google.com/file/d/1LHG9Feg93OHprW_CDEPQ8rMyWZeEsPPE/view}
 
 \newcommand{\email}[1]{\cvlink{mailto:#1}{#1}}
-\newcommand{\linkedin}{\cvlink{\urlLinkedIn}{Linkedin}}
+\newcommand{\linkedin}{\cvlink{\urlLinkedIn}{LinkedIn}}
 \newcommand{\github}{\cvlink{\urlGitHub}{GitHub}}
 
 % ---------------------------------------------------------------- header
 % \cvheader{Name}{contact line}  — optional extra lines follow as \cvheaderline.
 \newcommand{\cvheader}[2]{%
   \begin{center}
-    {\huge\scshape #1}\\[3pt]
+    {\LARGE\scshape #1}\\[2pt]
     {\small #2}%
 }
 \newcommand{\cvheaderline}[1]{\\[1pt]{\small #1}}
@@ -78,6 +80,13 @@
     \textit{\small #3} & \textit{\small #4} \\
   \end{tabular*}\par\vspace{-1pt}%
 }
+% Publications block, shared by every version.
+\newcommand{\cvpublications}{%
+  \cvsection{Publications}
+  \begin{itemize}
+    \item \textbf{N.~Li}, Y.~Han. ``Making Tail Constraints Bind: Two Silent Failure Modes in CVaR-Constrained Portfolio RL.'' \textit{7th ACM International Conference on AI in Finance (ICAIF~'26)}, 2026. Accepted.
+    \item \textbf{N.~Li} (Captain), A.~R.~Kommareddy, A.~V.~Kramarenko, W.~Y.~Qiu, L.~K.~Y.~Tam, J.~Wang. ``When `\$1' Isn't One: Stablecoin Discounts and Market Fragmentation.'' \textit{IAQF Academic Affiliate Membership Student Competition}, 2026. \cvlink{\urlIAQF}{Winning paper}.
+  \end{itemize}}
 \newcommand{\entrygap}{\par\vspace{4pt}}
 
 \RequirePackage{enumitem}
