@@ -2,11 +2,14 @@
 .DS_Store
 
 # Never publish: this repo is public
-stella/                 # another person's CVs
-2027_Applications/      # applications and transcripts
+# another person's CVs
+stella/
+# applications and transcripts
+2027_Applications/
 *.docx
 *.xlsx
-latex/Li_Nigel.tex      # states work-authorization / visa status
+# states work-authorization / visa status
+latex/Li_Nigel.tex
 latex/pdf/Li_Nigel.pdf
 
 # scratch / build leftovers
